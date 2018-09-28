@@ -3,7 +3,7 @@
   <name>PHP CGI Service</name>
   <description>Runs the php-cgi.exe as a service</description>
   <executable>C:\opt\xampp\php\php-cgi.exe</executable>
-  <stopexecutable>C:\opt\xampp\php\php-stop.cmd</stopexecutable>
+  <stopexecutable>C:\opt\xampp\php\php-cgi-stop.cmd</stopexecutable>
   <env name="PHPRC" value="C:\opt\xampp\php" />
   <logpath>C:\opt\xampp\php\logs</logpath>
   <logmode>roll</logmode>

@@ -24,13 +24,15 @@ Installation
 The first thing that's needed is the WinSW binary from https://github.com/kohsuke/winsw/releases
 The "winsw-{VERSION}-bin.exe" needs to be saved to the folder containing php-cgi.exe, and needs to be renamed "php-cgi-service.exe" 
 
+### Copy files and create log folder
+
+Copy xml file `php-cgi-service.xml` and `php-cgi-stop.bat` into the same folder as php-cgi.exe and php-cgi-service.exe are.
+
+Create `logs` folder where you want to log the service output.
+
 ### Update settings
 
-Copy xml file `php-cgi-service.xml` into the same folder as php-cgi.exe and php-cgi-service.exe are.
-
-Fit `C:\PATH\TO`, `PORT`... as needed.
-
-Add log folder.
+Fit `C:\PATH\TO` and `PORT`... as needed.
 
 ```
 <service> 
@@ -38,7 +40,7 @@ Add log folder.
 <name>PHP</name> 
 <description>PHP</description> 
 <executable>C:\PATH\TO\php\php-cgi.exe</executable> 
-<stopexecutable>C:\PATH\TO\php\php-stop.cmd</stopexecutable> 
+<stopexecutable>C:\PATH\TO\php\php-cgi-stop.cmd</stopexecutable> 
 <env name="PHPRC" value="C:\PATH\TO\FOLDER\CONTAINING\PHPINI" /> 
 <logpath>C:\PATH\FOR\WINSW\LOGFILES</logpath> 
 <logmode>roll</logmode> 
@@ -47,13 +49,7 @@ Add log folder.
 </service> 
 ```
 
-### Add missing batch file
-
-In your PHP folder, alongside your php-cgi.exe, you need to make a file called "php-stop.cmd" with the following contents: 
-
-```
-taskkill /f /IM php-cgi.exe 
-```
+### Install windows service
 
 Once this has all been accomplished, open the command prompt, switch to the folder containing php-cgi.exe, and execute the following command: 
 
