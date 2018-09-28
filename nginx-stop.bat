@@ -2,10 +2,10 @@
 
 cd /D %~dp0
 
-taskkill /f /IM nginx.exe 
-
-if not exist logs\nginx.pid GOTO exit
+if not exist logs\nginx.pid GOTO skip
 nginx.exe -s quit
 del logs\nginx.pid
 
-:exit
+:skip
+
+taskkill /f /IM nginx.exe 
