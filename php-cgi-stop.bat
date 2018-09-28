@@ -1,1 +1,0 @@
-taskkill /f /IM php-cgi.exe 

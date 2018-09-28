@@ -1,0 +1,9 @@
+<service>
+  <id>Nginx</id>
+  <name>Nginx CGI Service</name>
+  <description>Runs the nginx.exe as a service</description>
+  <executable>C:\opt\nginx\nginx.exe</executable>
+  <stopexecutable>C:\opt\nginx\nginx-stop.cmd</stopexecutable>
+  <logpath>C:\opt\nginx\logs</logpath>
+  <logmode>roll</logmode>
+</service> 
